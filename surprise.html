@@ -1,0 +1,373 @@
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter For Anjali</title>
+    <meta property="og:title" content="A Special Message For You">
+    <meta property="og:description" content="Anjali, please take a moment to read this...">
+    <meta property="og:image" content="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/63aa3b55-a12e-4ee8-9657-500dadec0861.png">
+    <meta property="og:url" content="YOUR_URL_HERE">
+    <meta name="twitter:card" content="summary_large_image">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;400;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow-x: hidden;
+            color: #333;
+        }
+        
+        .cursive {
+            font-family: 'Pacifico', cursive;
+        }
+        
+        .page {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            pointer-events: none;
+        }
+        
+        .page.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 2rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+        
+        .flower {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            margin: 2rem auto;
+        }
+        
+        .petal {
+            position: absolute;
+            width: 20px;
+            height: 50px;
+            background: linear-gradient(to bottom, #ff7eb3, #ff758c);
+            border-radius: 50% 50% 0 0;
+            transform-origin: bottom center;
+            opacity: 0;
+        }
+        
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ff6b6b;
+            transform: rotate(45deg);
+            opacity: 0;
+        }
+        
+        .heart:before, .heart:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ff6b6b;
+            border-radius: 50%;
+        }
+        
+        .heart:before {
+            top: -10px;
+            left: 0;
+        }
+        
+        .heart:after {
+            top: 0;
+            left: -10px;
+        }
+        
+        .memory-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 500px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        
+        .memory-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        #confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1: I miss you -->
+    <div class="page active" id="page1">
+        <h1 class="text-4xl cursive text-pink-600 mb-6">For Anjali</h1>
+        <p class="text-2xl mb-8">How much you know...</p>
+        <p class="text-xl mb-10">Wanna know more?</p>
+        <button class="btn" onclick="nextPage()">Click Here</button>
+    </div>
+    
+    <!-- Page 2: Flower blooming and praises -->
+    <div class="page" id="page2">
+        <div class="flower" id="flower"></div>
+        <h2 class="text-3xl cursive text-pink-600 mb-4">To The Most Beautiful Girl</h2>
+        <div class="max-w-md">
+            <p class="mb-4">Your smile brightens my darkest days</p>
+            <p class="mb-4">Your kindness touches everyone around you</p>
+            <p class="mb-4">Your strength inspires me to be better</p>
+            <p class="mb-4">Your love is the most precious gift I've ever received</p>
+        </div>
+        <button class="btn" onclick="nextPage()">Next</button>
+    </div>
+    
+    <!-- Page 3: Our Memories -->
+    <div class="page" id="page3">
+        <h2 class="text-3xl cursive text-pink-600 mb-8">Our Memories</h2>
+        
+        <div class="memory-card">
+            <h3 class="text-xl font-bold mb-2">Late Night Talks</h3>
+            <p>Those endless conversations under the stars, where time stood still and it felt like we were the only two people in the world.</p>
+        </div>
+        
+        <div class="memory-card">
+            <h3 class="text-xl font-bold mb-2">Long Distance Love</h3>
+            <p>Though miles apart, our hearts beat as one. Every call, every message, every thought of you bridges the distance.</p>
+        </div>
+        
+        <div class="memory-card">
+            <h3 class="text-xl font-bold mb-2">Special Moments</h3>
+            <p>Looking forward to our next meeting, planning our future, dreaming together - these moments keep me going.</p>
+        </div>
+        
+        <button class="btn" onclick="nextPage()">Next</button>
+    </div>
+    
+    <!-- Page 4: Come back -->
+    <div class="page" id="page4">
+        <h2 class="text-3xl cursive text-pink-600 mb-8">Please Come Back</h2>
+        <p class="text-xl mb-6">Life isn't the same without you</p>
+        <p class="mb-8">Every moment feels incomplete</p>
+        
+        <div id="heart-animation" class="mb-8" style="width: 100px; height: 100px; position: relative;"></div>
+        
+        <p class="text-xl mb-6">My heart aches for your presence</p>
+        <p class="text-2xl cursive text-pink-600">Anjali, my love, please come back to me</p>
+        <div class="flex gap-4 mt-6">
+          <button class="bg-blue-500 text-white px-4 py-2 rounded-lg" 
+            onclick="shareOnInstagram()">Share on IG</button>
+          <button class="bg-green-500 text-white px-4 py-2 rounded-lg"
+            onclick="shareOnWhatsApp()">Share on WhatsApp</button>
+        </div>
+    </div>
+    
+    <canvas id="confetti"></canvas>
+    
+    <script>
+        let currentPage = 1;
+        const totalPages = 4;
+        
+        function nextPage() {
+            document.getElementById(`page${currentPage}`).classList.remove('active');
+            
+            currentPage++;
+            if (currentPage > totalPages) currentPage = 1;
+            
+            const nextPageEl = document.getElementById(`page${currentPage}`);
+            nextPageEl.classList.add('active');
+            
+            // Trigger animations based on page
+            if (currentPage === 2) {
+                animateFlower();
+            } else if (currentPage === 3) {
+                showMemories();
+            } else if (currentPage === 4) {
+                animateHearts();
+                startConfetti();
+            }
+        }
+        
+        function animateFlower() {
+            const flower = document.getElementById('flower');
+            flower.innerHTML = '';
+            
+            // Create petals
+            for (let i = 0; i < 8; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.style.transform = `rotate(${i * 45}deg) translateY(-20px)`;
+                petal.style.top = '25px';
+                petal.style.left = '40px';
+                flower.appendChild(petal);
+                
+                // Animate petals
+                setTimeout(() => {
+                    petal.style.opacity = '1';
+                    petal.style.transform = `rotate(${i * 45}deg) translateY(0)`;
+                }, i * 100);
+            }
+            
+            // Create center
+            setTimeout(() => {
+                const center = document.createElement('div');
+                center.style.width = '30px';
+                center.style.height = '30px';
+                center.style.borderRadius = '50%';
+                center.style.background = 'linear-gradient(to bottom, #ffd700, #ffa500)';
+                center.style.position = 'absolute';
+                center.style.top = '35px';
+                center.style.left = '35px';
+                center.style.opacity = '0';
+                flower.appendChild(center);
+                
+                setTimeout(() => {
+                    center.style.opacity = '1';
+                }, 100);
+            }, 900);
+        }
+        
+        function showMemories() {
+            const cards = document.querySelectorAll('.memory-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('visible');
+                }, index * 300);
+            });
+        }
+        
+        function animateHearts() {
+            const container = document.getElementById('heart-animation');
+            container.innerHTML = '';
+            
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.style.left = `${Math.random() * 80}px`;
+                    heart.style.top = `${Math.random() * 80}px`;
+                    heart.style.opacity = '0';
+                    heart.style.transform = `rotate(45deg) scale(0)`;
+                    container.appendChild(heart);
+                    
+                    // Animate in
+                    setTimeout(() => {
+                        heart.style.opacity = '1';
+                        heart.style.transform = `rotate(45deg) scale(${0.5 + Math.random()})`;
+                    }, 50);
+                    
+                    // Animate out
+                    setTimeout(() => {
+                        heart.style.opacity = '0';
+                        heart.style.transform = `rotate(45deg) scale(0)`;
+                        setTimeout(() => {
+                            heart.remove();
+                        }, 500);
+                    }, 2000);
+                }, i * 200);
+            }
+            
+            // Keep animating
+            setTimeout(animateHearts, 2500);
+        }
+        
+        function startConfetti() {
+            const canvas = document.getElementById('confetti');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const colors = ['#ff6b6b', '#ff8e8e', '#ffb3b3', '#ffd8d8'];
+            const confetti = [];
+            
+            for (let i = 0; i < 100; i++) {
+                confetti.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    r: Math.random() * 4 + 1,
+                    d: Math.random() * 7 + 3,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    tilt: Math.floor(Math.random() * 10) - 10,
+                    tiltAngle: Math.random() * 0.1,
+                    tiltAngleIncrement: Math.random() * 0.07
+                });
+            }
+            
+            function drawConfetti() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                confetti.forEach((c) => {
+                    ctx.beginPath();
+                    ctx.lineWidth = c.r;
+                    ctx.strokeStyle = c.color;
+                    ctx.moveTo(c.x + c.tilt, c.y);
+                    ctx.lineTo(c.x + c.tilt + c.r * 2, c.y);
+                    ctx.stroke();
+                    
+                    c.tiltAngle += c.tiltAngleIncrement;
+                    c.y += (Math.cos(c.d) + 3 + c.r / 2) / 2;
+                    c.tilt = Math.sin(c.tiltAngle) * 15;
+                    
+                    if (c.y > canvas.height) {
+                        c.y = -10;
+                        c.x = Math.random() * canvas.width;
+                    }
+                });
+                
+                requestAnimationFrame(drawConfetti);
+            }
+            
+            drawConfetti();
+        }
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const canvas = document.getElementById('confetti');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
